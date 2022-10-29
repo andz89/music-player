@@ -1,0 +1,26 @@
+
+.drop-zone {
+
+	/* padding: 25px; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: "Quicksand", sans-serif;
+
+	font-size: 20px;
+
+	color: #cccccc;
+	/* border:  dashed #009578; */
+	border-radius: 10px;
+}
+
+.drop-zone--over {
+	border:2px dashed ;
+    background-color: #3333;
+}
+
+.drop-zone__input {
+	display: none;
+}
+
