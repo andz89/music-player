@@ -6,6 +6,7 @@ $white: #FFFFFF;
 $light: #C0CFB2;
 $dark: #364F3C;
 
+
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import 'drop';
 
@@ -15,22 +16,34 @@ $font: 'Questrial', sans-serif;
 html {
   min-height: 100%;
   display: grid;
-  
+
 }
 
 body {
-  background: linear-gradient(to bottom left, $light 10%, $secondary 80%);
+  // background: linear-gradient(to bottom left, $light 10%, $secondary 80%);
   display: grid;
   overflow: hidden;
-  
+  margin: 0;
+  padding: 0;
 }
-
+#bg-image{
+  position: fixed;
+  z-index: -9999;
+  width: 100%;
+  img{
+      width: 100%;
+  object-fit: cover;
+  /* Add the blur effect */
+  height: 100%;
+  -webkit-filter: blur(80px);
+  }
+}
 #player {
   background: $white;
   position: relative;
   margin: auto;
-  width: 500px;
-  height: 400px;
+  width: 600px;
+  height: 560px;
   overflow: hidden;
   border-radius: 5px;
   box-shadow: 5px 5px 15px rgba($dark, .4);
@@ -43,28 +56,53 @@ body {
 
 .album {
   
-  background:  url('../tree.jpg');
- 
-  background-repeat: no-repeat;
-  background-size: 600px;
   width: 100%;
   height: 100%;
   border-radius: 5px;
   position: absolute;
-  padding: 10px;
-  
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+    .img-slider{
+      animation-name: modalOpen;
+      animation-duration: 3s;  
+
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+ 
 }
-.img-container{
-  width: 100%;
-  img{
-    width: 50%;
-  }
+
+
+@keyframes modalOpen{
+  100%{opacity: 1;}
+  90%{opacity: 0.9} 
+  80%{opacity: 0.8} 
+  70%{opacity: 0.7} 
+  60%{opacity: 0.6} 
+  50%{opacity: 0.5} 
+  40%{opacity: 0.4} 
+  30%{opacity: 0.3} 
+  20%{opacity: 0.2} 
+  10%{opacity: 0.1}
+  0%{opacity: 0}
+
+
+
+
+
+
+
+
+
+ 
 }
 .heart {
   position: absolute;
   right: 0;
   color: $white;
-  margin: 10px;
+  margin: 20px 30px;
   transition: all .4s ease;
 }
 
@@ -75,7 +113,7 @@ body {
 }
 
 .info {
-  height: 145px;
+  height: 90px;
   width: 100%;
   position: absolute;
   bottom:0;
@@ -91,8 +129,8 @@ body {
 
 .progress-bar {
   height: 5px;
-  width: 73%;
-  margin: 6% auto;
+  width: 85%;
+  margin: 15px auto 10px;
   background: lighten($light, 5%);
   border-radius: 10px;
   font-family: $font;
@@ -123,6 +161,7 @@ body {
 .currently-playing {
   text-align: center;
   margin-top: -3px;
+  margin-bottom: 0;
 }
 
 .song-name, .artist-name {
@@ -147,9 +186,13 @@ margin: auto;
   letter-spacing: 1.5px;
   color: lighten($dark, 15%);
   margin-top: 5px;
+  padding: 0 10px;
 }
 
 .controls {
+
+  margin-bottom: 30px;
+
   display: flex;
   align-items: center;
   font-size: .8em;
@@ -159,10 +202,7 @@ margin: auto;
     margin: 15px 25px;
     color: darken($secondary, 10%);
   }
-  .play-again{
-    display: none;
-    margin: 15px 25px;
-  }
+
   .option {
     left: 10px;
     position: absolute;

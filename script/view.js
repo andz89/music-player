@@ -1,7 +1,7 @@
 
-document.querySelector(".heart").click(function(){
-    this.classList.toggle("clicked");
-  });
+// document.querySelector(".heart").click(function(){
+//     this.classList.toggle("clicked");
+//   });
   
   document.querySelector(".shuffle").click(function(){
     this.classList.toggle("clicked");

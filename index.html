@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Document</title>
 </head>
 <body draggable="false">
-   
+
+  <div id="bg-image">
+    <img class="bg-image"  src="" alt="">
+
+  </div>
     <div class="drop-zone">
 	
 		<input type="file" name="myFile" class="drop-zone__input" >
@@ -17,11 +22,10 @@
    
     <div id="player">
         <div class="album">
-            <!-- <div class="img-container">
-                <img src="gwill.jpg"   alt="">
-            </div> -->
+          <img id="img-slider" src="" alt="">
+          <!-- <img src="" id="image-slide" alt="" draggable="false" > -->
        
-          <div class="heart"><i class="fas fa-heart"></i></div>
+          <!-- <div class="heart"><i class="fas fa-heart"></i></div> -->
         </div>
         <div class="info">
           <div class="progress-bar">
@@ -31,15 +35,13 @@
           </div>
           <div class="currently-playing">
             <h2 class="song-name">Drop audio files</h2>
-            <h3 class="artist-name">Glory to God</h3>
-       
           </div>
+         
           <div class="controls">
             <div class="option"><i class="fas fa-bars"></i></div>
             <div class="volume"><i class="fas fa-volume-up"></i></div>
             <div class="previous"><i class="fas fa-backward"></i></div>
             <div class="play"><i class="fas fa-play"></i></div>
-            <div class="play-again "><i class="fa fa-rotate-left"></i></div>
             <div class="pause"><i class="fas fa-pause"></i></div>
             <div class="next"><i class="fas fa-forward"></i></div>
             <div class="shuffle"><i class="fas fa-random"></i></div>
@@ -61,7 +63,9 @@
 
 
 
+
 <script src="script/main.js"></script>
+<script src="script/slide.js"></script>
 <script src="script/view.js"></script>
 </body>
 </html>
