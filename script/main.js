@@ -1,3 +1,6 @@
+import Control from './controls.js'
+
+
 let musics = []
 let count = 0
 let audio = document.querySelector('audio')
@@ -5,8 +8,23 @@ const title = document.querySelector('.song-name');
 const currTime = document.querySelector('.time--current');
 const progress = document.querySelector('.progress-bar .fill');
 const durTime = document.querySelector('.time--total');
+let play_button = document.querySelector('.play');
+let pause_button = document.querySelector('.pause');
 
-const mutag = window.mutag;
+let data = {
+    play_button: pause_button,
+    pause_button: pause_button,
+    musics: musics,
+    title: title,
+    audio: audio,
+    count: count,
+    currTime: currTime,
+    progress: progress,
+    durTime: durTime
+}
+let control = new Control(data)
+
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -31,7 +49,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     dropZoneElement.addEventListener("drop", readFile)
 
     function readFile(e) {
-        e.preventDefault();
+        e.preventDefault()
 
         let files = e.dataTransfer.files
 
@@ -55,51 +73,30 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 
 });
 
-document.querySelector('.play').addEventListener('click', playFile)
+
+// play audio
+play_button.addEventListener('click', () => {
+    control.playFile()
+})
 
 
-function playFile() {
+// pause audio
+pause_button.onclick = () => {
 
-
-    if (musics.length >= count + 1) {
-        title.innerText = musics[count][1]
-        audio.src = musics[count][0]
-
-
-        audio.play()
-
-        audio.addEventListener('ended', () => {
-            count++
-            playFile()
-        })
-    } else {
-
-        document.querySelector('.pause').style.display = 'none'
-        document.querySelector('.play').style.display = 'block'
-
-    }
-
-
+    control.pause()
 }
 
-
-document.querySelector('.pause').onclick = () => {
-    audio.pause()
-    currTime.innerText = audio.currentTime
-    document.querySelector('.play').style.display = 'block'
-}
-
-
-document.querySelector('audio').addEventListener('playing', function () {
-    document.querySelector('.pause').style.display = 'block'
-    document.querySelector('.play').style.display = 'none'
+// check audio is playing
+audio.addEventListener('playing', function () {
+    pause_button.style.display = 'block'
+    play_button.style.display = 'none'
 
 });
 
-document.querySelector('audio').addEventListener('pause', function () {
+audio.addEventListener('pause', function () {
 
-    document.querySelector('.pause').style.display = 'none'
-    document.querySelector('.play').style.display = 'block'
+    pause_button.style.display = 'none'
+    play_button.style.display = 'block'
 
 });
 

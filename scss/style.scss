@@ -36,6 +36,7 @@ body {
   /* Add the blur effect */
   height: 100%;
   -webkit-filter: blur(80px);
+  filter: brightness(50%);
   }
 }
 #player {
