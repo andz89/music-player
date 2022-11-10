@@ -9,6 +9,8 @@ class Controls {
         this.count = data.count
         this.currTime = data.currTime
     }
+
+    // play audio
     playFile() {
 
 
@@ -33,6 +35,7 @@ class Controls {
 
     }
 
+    // pause audio
     pause() {
         this.audio.pause()
         this.currTime.innerText = this.audio.currentTime

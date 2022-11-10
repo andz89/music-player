@@ -1,6 +1,6 @@
 import Control from './controls.js'
-
-
+import SlideShow from './SlideShow.js'
+import Upload from './Upload.js'
 let musics = []
 let count = 0
 let audio = document.querySelector('audio')
@@ -22,56 +22,14 @@ let data = {
     progress: progress,
     durTime: durTime
 }
+
 let control = new Control(data)
+let slide = new SlideShow()
+let upload = new Upload(data)
 
 
-document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-    const dropZoneElement = inputElement.closest(".drop-zone");
-
-
-    inputElement.addEventListener("change", (e) => {
-        if (inputElement.files.length) {
-            updateThumbnail(dropZoneElement, inputElement.files[0]);
-        }
-    });
-
-    dropZoneElement.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        dropZoneElement.classList.add("drop-zone--over");
-    });
-
-    ["dragleave", "dragend"].forEach((type) => {
-        dropZoneElement.addEventListener(type, (e) => {
-            dropZoneElement.classList.remove("drop-zone--over");
-        });
-    });
-
-    dropZoneElement.addEventListener("drop", readFile)
-
-    function readFile(e) {
-        e.preventDefault()
-
-        let files = e.dataTransfer.files
-
-        for (var i = 0; files.length > i; i++) {
-
-            const urlObj = URL.createObjectURL(files[i]);
-
-
-            let song = [
-                urlObj, files[i].name
-            ]
-            musics.push(song)
-        }
-
-        dropZoneElement.classList.remove("drop-zone--over");
-        title.innerText = musics[count][1]
-
-
-    }
-
-
-});
+upload.drop_Audio()
+slide.slideImage()
 
 
 // play audio

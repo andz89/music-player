@@ -36,7 +36,7 @@ body {
   /* Add the blur effect */
   height: 100%;
   -webkit-filter: blur(80px);
-  filter: brightness(50%);
+  // filter: brightness(50%);
   }
 }
 #player {
@@ -126,7 +126,10 @@ body {
 .up {
   transform: translateY(0px);
 }
+.down{
+  transform: translateY(35px);
 
+}
 
 .progress-bar {
   height: 5px;

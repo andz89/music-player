@@ -1,26 +1,37 @@
-// document.querySelector(".heart").click(function(){
-//     this.classList.toggle("clicked");
-// });
-
 document.querySelector(".shuffle").click(function () {
     this.classList.toggle("clicked");
 });
-
-
+let timeToClose;
 document.querySelector("#player").addEventListener('mouseover', function () {
-    document.querySelector(".info").classList.toggle("up");
+    timeToClose = null
+    document.querySelector(".info").classList.add('up')
+    document.querySelector(".info").classList.remove('down')
+
+
 });
+document.querySelector("#player").addEventListener('mouseleave', function () {
+    timeToClose = 2
+    function recursion() {
 
-document.querySelector("#player").addEventListener('mouseout', function () {
+        if (timeToClose == 0) {
+            document.querySelector(".info").classList.add('down')
+            document.querySelector(".info").classList.remove('up')
+        }
 
-    document.querySelector(".info").classList.toggle("up");
+        if (timeToClose > 0) {
+            timeToClose--
+            setTimeout(recursion, 1000)
+
+        }
+
+    }
+    recursion()
+
 
 });
 
 
 // music player settings
-
-
 document.querySelector(".pause").style.display = "none";
 
 
