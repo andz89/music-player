@@ -29,14 +29,17 @@ body {
 #bg-image{
   position: fixed;
   z-index: -9999;
-  width: 100%;
+width: 100%;
+height: 100%;
   img{
-      width: 100%;
+   margin: auto;
   object-fit: cover;
   /* Add the blur effect */
+  width: 100%;
   height: 100%;
+  filter: brightness(50%);
   -webkit-filter: blur(80px);
-  // filter: brightness(50%);
+
   }
 }
 #player {
@@ -202,7 +205,7 @@ margin: auto;
   font-size: .8em;
   justify-content: center;
   color: $secondary;
-  .play, .pause {
+  .play, .pause, .replay {
     margin: 15px 25px;
     color: darken($secondary, 10%);
   }
@@ -227,7 +230,7 @@ margin: auto;
   }
 }
 
-.play, .pause, .next, .previous, .option, .add, .volume, .shuffle {
+.play, .pause, .next, .previous, .option, .add, .volume, .shuffle , .replay{
   transition: all .5s ease;
   &:hover {
     color: lighten($dark, 15%);

@@ -1,7 +1,7 @@
 class SlideShow {
     slideImage() {
 
-        let input = 20
+        let input = 60
         let time = input
         function slide() {
             let random = Math.random() * 5

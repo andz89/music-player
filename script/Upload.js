@@ -37,10 +37,15 @@ class Upload {
                     const urlObj = URL.createObjectURL(files[i]);
 
 
-                    let song = [
-                        urlObj, files[i].name
-                    ]
+                    // Regular expression for file extension.
+                    var patternFileExtension = /\.([0-9a-z]+)(?:[\?#]|$)/i;
 
+                    // Get the file Extension
+                    var fileExtension = (files[i].name).match(patternFileExtension);
+
+                    let file_name = files[i].name.replace(fileExtension[0], '')
+
+                    let song = [urlObj, file_name]
                     this.musics.push(song)
                 }
 
