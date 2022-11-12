@@ -6,16 +6,16 @@ class SlideShow {
         function slide() {
             let random = Math.random() * 5
 
-            let category = [
-                'nature',
-                'summer',
-                'beach',
-                'rain',
-                'tree'
-            ]
+            let category = [// 'nature',
+                // 'summer',
+                // 'beach',
+                // 'rain',
+                'tree']
             let a = category[~~ random]
-            let url = fetch(`https://source.unsplash.com/random/600x560/?${a}`)
+            // let url = fetch(`https://source.unsplash.com/random/600x560/?${a}`)
+            let url = fetch(`https://source.unsplash.com/SYTO3xs06fU/600x560`)
 
+            // src="https://source.unsplash.com/SYTO3xs06fU/1600x900"  for specific image
             url.then(renderImage)
 
             url.catch((e) => {
@@ -38,6 +38,7 @@ class SlideShow {
                 //     img.src = url;
                 // }
                 // getMeta(e.url)
+                // console.log(e.url);
                 let img = document.querySelector('#img-slider')
                 img.src ? img.src = ' ' : '';
 

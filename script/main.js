@@ -14,13 +14,12 @@ let progress = document.querySelector('.progress-bar .fill');
 let durTime = document.querySelector('.time--total');
 let play_button = document.querySelector('.play');
 let pause_button = document.querySelector('.pause');
-let replay_button = document.querySelector('.replay');
-replay_button.style.display = 'none';
+
+
 let state = false
 let data = {
     play_button: pause_button,
     pause_button: pause_button,
-    replay_button: replay_button,
 
     musics: musics,
     title: title,
@@ -41,7 +40,7 @@ let view = new View()
 view.toolsView()
 upload.drop_Audio()
 slide.slideImage()
-control.audioEvent()
+
 
 // set drag image false
 window.addEventListener('mousedown', (e) => {
@@ -52,36 +51,35 @@ window.addEventListener('mousedown', (e) => {
 
 // play audio
 play_button.addEventListener('click', () => {
-
+    play_button.style.display = 'none'
+    pause_button.style.display = 'block'
     control.playFile()
-
 })
 
 
 // pause audio
 pause_button.onclick = () => {
-
+    play_button.style.display = 'block'
+    pause_button.style.display = 'none'
     control.pause()
+};
+audio.addEventListener('timeupdate', time.DurTime);
 
-}
-
-// check audio is playing
-audio.addEventListener('playing', function () {
+audio.addEventListener('pause', () => {
+    play_button.style.display = 'none';
     pause_button.style.display = 'block'
-    play_button.style.display = 'none'
-    replay_button.style.display = 'none'
+})
+
+
+audio.addEventListener('ended', () => {
+    control.nextSong()
 });
 
 
-replay_button.addEventListener('click', () => {
-    control.replay()
+audio.addEventListener('timeupdate', time.updateProgress);
 
-})
+// check audio is playing
+audio.addEventListener('playing', () => {});
+
 
 // get duration & currentTime for Time of song
-
-
-audio.addEventListener('timeupdate', time.DurTime);
-
-
-audio.addEventListener('timeupdate', time.updateProgress);
