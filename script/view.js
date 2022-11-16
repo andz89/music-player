@@ -8,6 +8,8 @@ class View {
             timeToClose = null
             document.querySelector(".info").classList.add('up')
             document.querySelector(".info").classList.remove('down')
+            // document.querySelector("#verse-container").classList.remove('up')
+            document.querySelector("#verse-container").style.display = 'none'
 
 
         });
@@ -18,6 +20,9 @@ class View {
                 if (timeToClose == 0) {
                     document.querySelector(".info").classList.add('down')
                     document.querySelector(".info").classList.remove('up')
+                    document.querySelector("#verse-container").style.display = 'block'
+
+
                 }
 
                 if (timeToClose > 0) {

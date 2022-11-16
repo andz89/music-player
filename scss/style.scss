@@ -37,8 +37,8 @@ height: 100%;
   /* Add the blur effect */
   width: 100%;
   height: 100%;
-  filter: brightness(50%);
-  -webkit-filter: blur(80px);
+  // filter: brightness(10%);
+  -webkit-filter: blur(250px);
 
   }
 }
@@ -57,9 +57,38 @@ height: 100%;
     transform: scale(1.05);
   }
 }
+#verse-container{
+  position: absolute;
+  opacity: .8;
+  color: #000;
+  z-index: 999;
+  font-size: 14px;
+  top: 89%;
 
+  user-select: none;
+
+  width: 100%;
+  margin: auto;
+  animation-name: modalOpen;
+  animation-duration: 3s;  
+  transition: all .5s ease-in-out;
+  .content{
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    width: 100%;
+   
+  }
+  .verse-text{
+    font-weight: 600;
+  }
+  .verse-number{
+    font-style: italic;
+    font-size: 13px;
+  }
+}
 .album {
-  
+
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -68,8 +97,7 @@ height: 100%;
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
     .img-slider{
-      animation-name: modalOpen;
-      animation-duration: 3s;  
+  
 
       object-fit: cover;
       width: 100%;
@@ -80,8 +108,8 @@ height: 100%;
 
 
 @keyframes modalOpen{
-  100%{opacity: 1;}
-  90%{opacity: 0.9} 
+  // 100%{opacity: 1;}
+  // 90%{opacity: 0.9} 
   80%{opacity: 0.8} 
   70%{opacity: 0.7} 
   60%{opacity: 0.6} 
@@ -122,7 +150,7 @@ height: 100%;
   position: absolute;
   bottom:0;
   background: rgba($white, .85);
-  transform: translateY(35px);
+  transform: translateY(95px);
   transition: all .5s ease-in-out;
 }
 
@@ -130,7 +158,7 @@ height: 100%;
   transform: translateY(0px);
 }
 .down{
-  transform: translateY(35px);
+  transform: translateY(95px);
 
 }
 
@@ -199,7 +227,7 @@ margin: auto;
 .controls {
 
   margin-bottom: 30px;
-
+ 
   display: flex;
   align-items: center;
   font-size: .8em;
@@ -223,17 +251,24 @@ margin: auto;
   .volume {
     margin-right: 30px;
     font-size: .8em;
+
   }
   .shuffle {
     margin-left: 30px;
     font-size: .8em;
   }
+  .loop {
+    margin-left: 30px;
+    font-size: .8em;
+  }
 }
 
-.play, .pause, .next, .previous, .option, .add, .volume, .shuffle , .replay{
+.play, .pause, .next, .previous, .option, .add, .volume, .shuffle , .replay, .loop{
+  cursor: pointer;
   transition: all .5s ease;
   &:hover {
     color: lighten($dark, 15%);
+
   }
 }
 

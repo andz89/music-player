@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Document</title>
+    <title>Christiantify</title>
 </head>
 <body >
 
@@ -19,18 +19,25 @@
 	
 		<input type="file" name="myFile" class="drop-zone__input" >
         <audio src="" preload="none" id="test-audio" style="display:none"></audio>
-   
+      
     <div id="player">
+    
         <div class="album">
           <img id="img-slider" src="" alt="">
           <!-- <img src="" id="image-slide" alt="" draggable="false" > -->
        
           <!-- <div class="heart"><i class="fas fa-heart"></i></div> -->
+          <div id="verse-container">
+            <div class="content">
+              <span class="verse-text"></span> <br><span class="verse-number"></span>
+            </div>
+           
+          </div>
         </div>
         <div class="info">
           <div class="progress-bar">
             <div class="time--current">00:00</div>
-            <div class="time--total">10:00</div>
+            <div class="time--total">00:00</div>
             <div class="fill"></div>
           </div>
           <div class="currently-playing">
@@ -40,12 +47,20 @@
           <div class="controls">
             <div class="option"><i class="fas fa-bars"></i></div>
             <div class="volume"><i class="fas fa-volume-up"></i></div>
-            <div class="previous"><i class="fas fa-backward"></i></div>
+            <div class="previous"><i class="fas fa-backward previous"></i></div>
             <div class="play"><i class="fas fa-play"></i></div>
             <div class="pause"><i class="fas fa-pause"></i></div>
             <div class="next"><i class="fas fa-forward"></i></div>
             <div class="shuffle"><i class="fas fa-random"></i></div>
-            <div class="add"><i class="fas fa-plus"></i></div>
+
+         
+            <div class="loop"><i class="fa-sharp fa-solid fa-rotate"></i></div>
+            <div class="add"><i class="fas fa-add"></i></div>
+
+
+          
+ 
+
           </div>
         </div>
       </div>

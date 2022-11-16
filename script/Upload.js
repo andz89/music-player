@@ -5,6 +5,8 @@ class Upload {
         this.title = data.title
         this.count = data.count
         this.audio = data.audio
+        this.play_button = data.play_button
+        this.pause_button = data.pause_button
     }
     drop_Audio() { // drop audio files on browser
 
@@ -47,15 +49,17 @@ class Upload {
                     let file_name = files[i].name.replace(fileExtension[0], '')
 
                     let song = [urlObj, file_name]
+
                     this.musics.push(song)
 
 
                 }
+                // set index of songs
                 this.title.innerText = this.musics[this.count][1]
                 this.audio.src = this.musics[this.count][0]
 
+
                 dropZoneElement.classList.remove("drop-zone--over");
-                this.title.innerText = this.musics[this.count][1]
 
 
             };

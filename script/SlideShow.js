@@ -6,17 +6,32 @@ class SlideShow {
         function slide() {
             let random = Math.random() * 5
 
-            let category = [// 'nature',
+            let category = [
+                'nature',
                 // 'summer',
                 // 'beach',
-                // 'rain',
-                'tree']
+                'rain',
+                'tree'
+            ]
+
+
+            // let img = document.querySelector('#img-slider')
+            // img.src = './images/tree.jpg'
+            // img.width = '700';
+            // img.height = '560'
+            // let bgImage = document.querySelector('.bg-image')
+            // bgImage.src = './images/tree.jpg'
             let a = category[~~ random]
-            // let url = fetch(`https://source.unsplash.com/random/600x560/?${a}`)
-            let url = fetch(`https://source.unsplash.com/SYTO3xs06fU/600x560`)
+
+            let size = Math.random() * 10
+
+            let url = fetch(`https://source.unsplash.com/random/600x56${ ~~ size
+            }/?${a}`)
+            // let url = fetch(`https://source.unsplash.com/SYTO3xs06fU/600x560`)
 
             // src="https://source.unsplash.com/SYTO3xs06fU/1600x900"  for specific image
             url.then(renderImage)
+
 
             url.catch((e) => {
                 let img = document.querySelector('#img-slider')
