@@ -21,6 +21,8 @@ class SlideShow {
             // img.height = '560'
             // let bgImage = document.querySelector('.bg-image')
             // bgImage.src = './images/tree.jpg'
+
+            console.log('from desktop');
             let a = category[~~ random]
 
             let size = Math.random() * 10
