@@ -4,6 +4,9 @@ class SlideShow {
         let input = 60
         let time = input
         function slide() {
+
+            let bgImage = document.querySelector('.bg-image')
+            bgImage.src = './images/wood.jpg'
             let random = Math.random() * 5
 
             let category = [
@@ -15,12 +18,6 @@ class SlideShow {
             ]
 
 
-            // let img = document.querySelector('#img-slider')
-            // img.src = './images/tree.jpg'
-            // img.width = '700';
-            // img.height = '560'
-            // let bgImage = document.querySelector('.bg-image')
-            // bgImage.src = './images/tree.jpg'
             let a = category[~~ random]
 
             let size = Math.random() * 10
@@ -37,31 +34,18 @@ class SlideShow {
                 let img = document.querySelector('#img-slider')
                 img.src = './images/tree.jpg'
                 img.width = '1000'
-                let bgImage = document.querySelector('.bg-image')
-                bgImage.src = './images/tree.jpg'
+
             })
 
 
             function renderImage(e) {
-                // function getMeta(url) {
-                //     var img = new Image();
-                //     img.onload = function () {
-                //         console.log(this.width + " " + this.height);
 
-                //     };
-
-                //     img.src = url;
-                // }
-                // getMeta(e.url)
-                // console.log(e.url);
                 let img = document.querySelector('#img-slider')
                 img.src ? img.src = ' ' : '';
 
-                let bgImage = document.querySelector('.bg-image')
-                bgImage.src ? bgImage.src = ' ' : '';
+
                 time = input
                 img.src = e.url
-                bgImage.src = e.url
 
 
             }
